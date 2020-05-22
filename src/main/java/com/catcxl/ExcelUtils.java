@@ -6,8 +6,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
+/**
+ * <h3>Excel读写工具</h3>
+ *
+ * @Author Liqm
+ * @Date 2020-05-22
+ */
 public class ExcelUtils {
-
     /**
      * Excel文件数据读取
      * @param clazz
@@ -31,7 +36,7 @@ public class ExcelUtils {
      * @param outputStream
      */
     public static void writeExcel(Class clazz, List data,OutputStream outputStream){
-        EasyExcel.write(outputStream,UserInfo.class).sheet().doWrite(data);
+        EasyExcel.write(outputStream,clazz).sheet("员工信息").doWrite(data);
     }
 
 }

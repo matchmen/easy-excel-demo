@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,29 +14,38 @@ public class Test {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String readPath = "C:\\Users\\liqm\\Desktop\\上传文件.xls";
-        String writePath = "C:\\Users\\liqm\\Desktop\\write.xlsx";
-        FileInputStream fileInputStream = new FileInputStream(new File(readPath));
+       String readPath = "C:\\Users\\liqm\\Desktop\\上传文件.xls";
+        String writePath = "C:\\Users\\Liqm\\Desktop\\write.xlsx";
+       /*  FileInputStream fileInputStream = new FileInputStream(new File(readPath));
         List<UserInfo> userInfos = ExcelUtils.readExcel(UserInfo.class, fileInputStream);
         userInfos.stream().forEach(userInfo -> {
             System.out.println(userInfo);
         });
         //writeExcel(writePath);
-        /*UserInfo userInfo = new UserInfo();
+        UserInfo userInfo = new UserInfo();
         userInfo.setDepartmentName("国安");
         userInfo.setInstitutionName("部门1");
         userInfo.setEmployeeName("李四");
         userInfo.setSecretLevel("秘密");
         userInfo.setRoleName("拍拖员工");
-        userInfo.setStatus("正常");
+        userInfo.setStatus("正常");*/
+
+        Institution institution = new Institution();
+        institution.setName("网安");
+        Department department1 = new Department();
+        department1.setName("部门1");
+        department1.setRoleNames(Arrays.asList("部门1角色1","部门1角色2"));
+        Department department2 = new Department();
+        department2.setName("部门2");
+        department2.setRoleNames(Arrays.asList("部门2角色1","部门2角色2"));
+        institution.setDepartments(Arrays.asList(department1, department2));
 
         try {
             OutputStream outputStream = new FileOutputStream(new File(writePath));
-            ExcelUtils.writeExcel(UserInfo.class,Arrays.asList(userInfo),outputStream);
+            ExcelUtils.writeExcel(Institution.class,Arrays.asList(institution),outputStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }*/
-        //readExcel(new FileInputStream(new File(readPath)));
+        }
     }
 
     private static void readExcel(InputStream inputStream) {
@@ -64,9 +74,6 @@ public class Test {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
 

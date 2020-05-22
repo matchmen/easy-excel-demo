@@ -4,27 +4,27 @@ package com.catcxl;
 import com.alibaba.excel.annotation.ExcelProperty;
 
 public class UserInfo {
-    //@ExcelProperty(value = "机构名称")
-    @ExcelProperty(index = 0,value = "机构名称")
-    private String institutionName;
-    //@ExcelProperty(value = "部门")
-    @ExcelProperty(index = 1,value = "部门")
-    private String departmentName;
-    //@ExcelProperty(value = "姓名")
-    @ExcelProperty(index = 2)
+
+    @ExcelProperty(index = 0,value = "账号")
+    private String employeeAccount;
+
+    @ExcelProperty(index = 1,value = "姓名")
     private String employeeName;
-    //@ExcelProperty(value = "涉密等级")
-    @ExcelProperty(index =3)
+
+    @ExcelProperty(index = 2,value = "机构")
+    private String institutionName;
+
+    @ExcelProperty(index = 3,value = "部门")
+    private String departmentName;
+
+    @ExcelProperty(index =4,value = "涉密等级")
     private String secretLevel;
-    //@ExcelProperty(value = "角色")
-    @ExcelProperty(index = 4)
+
+    @ExcelProperty(index = 5,value = "关联角色")
     private String roleName;
-    //@ExcelProperty(value = "状态")
-    @ExcelProperty(index = 5)
+
+    @ExcelProperty(index = 6,value = "状态")
     private String status;
-    //@ExcelProperty(value = "")
-    @ExcelProperty(index = 6)
-    private String errorMsg;
 
     public String getInstitutionName() {
         return institutionName;
